@@ -1,5 +1,8 @@
 #include "MathFunctions.h"
+#include "TutorialConfig.h"
 #include <stdio.h>
+
+#include <math.h>
 
 // a hack square root calculation using simple operations
 double mysqrt(double x)
@@ -9,6 +12,12 @@ double mysqrt(double x)
   }
 
   double result;
+
+// if we have both log and exp then use them
+#if defined(HAVE_LOG) && defined(HAVE_EXP)
+  result = exp(log(x) * 0.5);
+  fprintf(stdout, "Computing sqrt of %g to be %g using log\n", x, result);
+#else
   double delta;
   result = x;
 
@@ -22,5 +31,6 @@ double mysqrt(double x)
     result = result + 0.5 * delta / result;
     fprintf(stdout, "Computing sqrt of %g to be %g\n", x, result);
   }
+#endif
   return result;
 }
