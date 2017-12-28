@@ -1,4 +1,4 @@
-pkg_name=cpp-gtest-demo
+pkg_name=cpp-cmake-tutorial-step4
 pkg_origin=bdangit
 pkg_version=0.1.0
 pkg_license=('MIT')
