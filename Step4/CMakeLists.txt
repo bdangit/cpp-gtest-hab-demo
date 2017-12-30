@@ -5,10 +5,11 @@ project (Tutorial)
 set (Tutorial_VERSION_MAJOR 1)
 set (Tutorial_VERSION_MINOR 0)
 
-# does this system provide the log and exp functions?
-# THIS WON'T WORK AT CMAKE BUILDTIME, need to figure out how to check function in a library
-include (${CMAKE_ROOT}/Modules/CheckFunctionExists.cmake)
+# Habitat sets up a clean environment and libm is located in `core/glibc` path.
 set (CMAKE_REQUIRED_LIBRARIES m)
+
+# does this system provide the log and exp functions?
+include (${CMAKE_ROOT}/Modules/CheckFunctionExists.cmake)
 check_function_exists (log HAVE_LOG)
 check_function_exists (exp HAVE_EXP)
 
