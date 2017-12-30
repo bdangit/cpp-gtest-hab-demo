@@ -1,7 +1,7 @@
 pkg_name=cpp-cmake-tutorial-step3
 pkg_origin=bdangit
 pkg_version=0.1.0
-pkg_license=('MIT')
+pkg_license=('BSD-3-Clause')
 pkg_build_deps=(
   core/gcc
   core/cmake
