@@ -14,6 +14,10 @@ pkg_deps=(
 
 BUILDDIR='build'
 
+do_prepare() {
+  rm -rf "${BUILDDIR}"
+}
+
 do_build() {
   mkdir -p "${BUILDDIR}"
   cmake -H./ \

@@ -14,17 +14,9 @@ pkg_deps=(
 
 BUILDDIR='build'
 
-# There is no default implementation of this callback. At this point in the
-# build process, the tarball source has been downloaded, unpacked, and the build
-# environment variables have been set, so you can use this callback to perform
-# any actions before the package starts building, such as exporting variables,
-# adding symlinks, and so on.
-# @see https://www.habitat.sh/docs/reference/plan-syntax/#callbacks
-# @see https://github.com/habitat-sh/habitat/blob/master/components/plan-build/bin/hab-plan-build.sh
 do_prepare() {
   rm -rf "${BUILDDIR}"
 }
-
 
 do_build() {
   mkdir -p "${BUILDDIR}"
