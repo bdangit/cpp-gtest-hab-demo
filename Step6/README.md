@@ -2,6 +2,16 @@
   complete, Habitat will process `do_install` which will install them into a place for Habitat to
   package the files into a `.hart`.  The steps below are shown for completeness.
 
+## Prep the Habitat Studio with `cpack`
+
+```
+[][default:/src:0]# hab pkg binlink core/cmake cpack
+» Binlinking cpack from core/cmake into /hab/bin
+★ Binlinked cpack from core/cmake/3.6.2/20170514012000 to /hab/bin/cpack
+```
+
+## Build binary distribution
+
 ```
 [][default:/src:0]# cpack --config /src/Step6/build/CPackConfig.cmake
 CPack: Create package using STGZ
@@ -30,6 +40,8 @@ drwxr-xr-x 501/20            0 2017-12-30 00:52 Tutorial-1.0.1-Linux/include/
 -rw-r--r-- 501/20           25 2017-12-30 00:42 Tutorial-1.0.1-Linux/include/MathFunctions.h
 -rw-r--r-- 501/20          224 2017-12-30 00:50 Tutorial-1.0.1-Linux/include/TutorialConfig.h
 ```
+
+## Create source distribution
 
 ```
 [][default:/src:0]# cpack --config Step6/build/CPackSourceConfig.cmake
